@@ -1,13 +1,27 @@
+import Avatar from '../../components/Avatar'
+import Paragrafo from '../../components/Paragrafo'
 import Titulo from '../../components/Titulo'
 
-const SideBar = () => {
+import { BotaoTema, Descricao, SideBarContainer } from './styles'
+
+type Props = {
+  trocaTema: () => void
+}
+
+const SideBar = (props: Props) => {
   return (
     <aside>
-      <img
-        src="https://github.com/MatheusFerretti-1508.png"
-        alt="Foto de perfil"
-      />
-      <Titulo fontSize={20}>Matheus</Titulo>
+      <SideBarContainer>
+        <Avatar />
+        <Titulo fontSize={20}>Matheus</Titulo>
+        <Paragrafo tipo="secundario" fontSize={16}>
+          MatheusFerretti-1508
+        </Paragrafo>
+        <Descricao tipo="principal" fontSize={12}>
+          Engenheiro Front-end
+        </Descricao>
+        <BotaoTema onClick={props.trocaTema}>Trocar tema</BotaoTema>
+      </SideBarContainer>
     </aside>
   )
 }
